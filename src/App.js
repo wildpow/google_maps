@@ -1,21 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import GoogleMapReact from 'google-map-react';
 
-class App extends Component {
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
+
+class SimpleMap extends Component {
+  static defaultProps = {
+    center: {
+      lat: 47.9050409,
+      lng: -122.2413456
+    },
+    zoom: 20
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      // Important! Always set the container height explicitly
+      <div style={{ height: '50vh', width: '50%' }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key:'AIzaSyA2E8TFz8_HRV_zfDER69-dVoECoZqENEQ' }}
+          defaultCenter={this.props.center}
+          defaultZoom={this.props.zoom}
+        >
+          <AnyReactComponent
+            lat={47.9050409}
+            lng={-122.2413456}
+            text={'E.S.C Mattress Center'}
+          />
+        </GoogleMapReact>
       </div>
     );
   }
 }
 
-export default App;
+export default SimpleMap;
