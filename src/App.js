@@ -1,35 +1,41 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import Logo from './logo.png';
+import styled from 'styled-components';
+import GoogleMapContainer from './itJustCantBeEasy'
+const StyledImage = styled.img`
+  max-width: 70px;
+  max-height: 70px;
+`;
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const LogoImage = () => <div><StyledImage src={Logo} alt="this"/></div>;
 
 class SimpleMap extends Component {
   static defaultProps = {
     center: {
-      lat: 47.9050409,
-      lng: -122.2413456
+      lat: 47.905314,
+      lng:  -122.241732
     },
-    zoom: 20
+    zoom: 17.5
   };
 
   render() {
     return (
-      // Important! Always set the container height explicitly
-      <div style={{ height: '50vh', width: '50%' }}>
+      <div style={{ height: '350px', width: '496px' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key:'AIzaSyA2E8TFz8_HRV_zfDER69-dVoECoZqENEQ' }}
+          bootstrapURLKeys={{ key:'AIzaSyDFQ2E_JWQ2m4FgS4kSsGqwItF_RlSlOkY' }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          <AnyReactComponent
-            lat={47.9050409}
-            lng={-122.2413456}
-            text={'E.S.C Mattress Center'}
+          <LogoImage
+            lat={47.905562}
+            lng={-122.24182}
           />
         </GoogleMapReact>
+        <GoogleMapContainer/>
       </div>
     );
   }
 }
-
+//AIzaSyA2E8TFz8_HRV_zfDER69-dVoECoZqENEQ
 export default SimpleMap;
