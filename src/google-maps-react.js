@@ -54,7 +54,7 @@ class GoogleMapContainer extends React.Component {
           marker = { this.state.activeMarker }
           visible = { this.state.showingInfoWindow }
         >
-        Hello World
+        <h3>Hello World</h3>
         </InfoWindow>
       </Map>
 
