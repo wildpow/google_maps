@@ -16,21 +16,21 @@ class SimpleMap extends Component {
       lat: 47.905314,
       lng:  -122.241732
     },
-    zoom: 17.5
+    zoom: 16.6
   };
 
   render() {
     return (
-      <div style={{ height: '350px', width: '496px' }}>
+      <div style={{ height: '1000px', width: '1500px' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key:'AIzaSyDFQ2E_JWQ2m4FgS4kSsGqwItF_RlSlOkY' }}
+          bootstrapURLKeys={{ key:'AIzaSyCtrSnp6zJ96mxtN1PelQGLRUvW4fa0VeI' }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
-          <LogoImage
+          {/* <LogoImage
             lat={47.905562}
             lng={-122.24182}
-          />
+          /> */}
         </GoogleMapReact>
       </div>
     );

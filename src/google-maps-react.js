@@ -1,5 +1,6 @@
 import React from 'react';
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
+const YOUR_GOOGLE_API_KEY_GOES_HERE = 'AIzaSyCtrSnp6zJ96mxtN1PelQGLRUvW4fa0VeI'
 
 class GoogleMapContainer extends React.Component {
   constructor(props) {
@@ -41,13 +42,14 @@ class GoogleMapContainer extends React.Component {
         style={style}
         google = { this.props.google }
         onClick={this.onMapClick }
-        zoom={ 14 }
-        initialCenter={{ lat: 39.648209, lng: -75.711185 }}
+        zoom={ 16.6 }
+        initialCenter={{ lat: 47.905314, lng: -122.241732 }}
       >
         <Marker
+          animation={ this.props.google.maps.Animation.DROP}
           onClick={ this.onMarkerClick }
           title={ 'Changing Colors Garage' }
-          position={{ lat: 39.648209, lng: -75.711185 }}
+          position={{ lat: 47.905314, lng: -122.241732 }}
           name={ 'Changing Colors Garage' }
         />
         <InfoWindow
@@ -63,5 +65,5 @@ class GoogleMapContainer extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  api: (process.env.googleApi)
+  api: (YOUR_GOOGLE_API_KEY_GOES_HERE)
 })(GoogleMapContainer)
