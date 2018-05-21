@@ -1,7 +1,10 @@
 import React from 'react';
 import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
-const YOUR_GOOGLE_API_KEY_GOES_HERE = 'AIzaSyCtrSnp6zJ96mxtN1PelQGLRUvW4fa0VeI'
+import mapStyles from './mapStyles.json';
 
+const defaultMapOptions = {
+  styles: mapStyles
+};
 class GoogleMapContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +40,8 @@ class GoogleMapContainer extends React.Component {
     }
     return (
       <Map
-        item
+        defaultOptions={defaultMapOptions}
+        
         xs={ 12 }
         style={style}
         google = { this.props.google }
@@ -65,5 +69,5 @@ class GoogleMapContainer extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  api: (YOUR_GOOGLE_API_KEY_GOES_HERE)
+  api: ('AIzaSyD0mkvjqWR2YJNyjY7erwkABQfC4YcEW98')
 })(GoogleMapContainer)
