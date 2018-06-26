@@ -41,7 +41,7 @@ class GoogleMapContainer extends React.Component {
     return (
       <Map
         defaultOptions={defaultMapOptions}
-        
+        styles = {mapStyles}
         xs={ 12 }
         style={style}
         google = { this.props.google }
@@ -69,5 +69,5 @@ class GoogleMapContainer extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  api: ('AIzaSyD0mkvjqWR2YJNyjY7erwkABQfC4YcEW98')
+  apiKey: ('AIzaSyD0mkvjqWR2YJNyjY7erwkABQfC4YcEW98')
 })(GoogleMapContainer)

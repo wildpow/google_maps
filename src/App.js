@@ -1,5 +1,5 @@
 import React from 'react';
-import SimpleMap from './google-map-react'
+// import SimpleMap from './google-map-react'
 import GoogleMapContainer from './google-maps-react';
 
 const App = () => {
@@ -16,3 +16,13 @@ const App = () => {
   //  GoogleMapContainer for google-maps-react
   // SimpleMap for google-map-react
 export default App;
+
+// {
+//   "featureType": "all",
+//   "elementType": "labels.text",
+//   "stylers": [
+//     {
+//       "visibility": "off"
+//     }
+//   ]
+// },
