@@ -14,16 +14,20 @@ class GoogleMapContainer extends React.Component {
       selectedPlace: {}
     }
     this.onMarkerClick = this.onMarkerClick.bind(this);
-    this.onMapClick = this.onMapClick.bind(this);
+    this.mapClicked = this.mapClicked.bind(this);
   }
   onMarkerClick = (props, marker, e) => {
+   
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true
     });
   }
-  onMapClick = (props) => {
+  mapClicked(mapProps, map, clickEvent) {
+    console.log('mapProps',mapProps)
+    console.log('map', map)
+  console.log('clickEvent',clickEvent)
     if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
@@ -45,7 +49,7 @@ class GoogleMapContainer extends React.Component {
         xs={ 12 }
         style={style}
         google = { this.props.google }
-        onClick={this.onMapClick }
+        onClick={this.mapClicked }
         zoom={ 16.6 }
         initialCenter={{ lat: 47.905314, lng: -122.241732 }}
       >
@@ -69,5 +73,5 @@ class GoogleMapContainer extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: ('AIzaSyD0mkvjqWR2YJNyjY7erwkABQfC4YcEW98')
+  apiKey: ('AIzaSyCj6JgxqozDSyHp0IF-q9QeieiYu8I4OPw')
 })(GoogleMapContainer)

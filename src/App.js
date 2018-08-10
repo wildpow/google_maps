@@ -1,13 +1,16 @@
 import React from 'react';
 // import SimpleMap from './google-map-react'
-import GoogleMapContainer from './google-maps-react';
-
+// import GoogleMapContainer from './google-maps-react';
+import NewMap from './NewMap'
+import MapWrapper from './auto';
 const App = () => {
     return (
       <div>
-        <GoogleMapContainer/>
+        {/* <NewMap/> */}
+        <MapWrapper/>
+        {/* <GoogleMapContainer/> */}
         {/* <SimpleMap/> */} 
-        <h1>Hello</h1>
+        
       </div>
     )
 }
