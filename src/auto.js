@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Markers from './markers';
 import Map, { Marker, GoogleApiWrapper, Polyline, InfoWindow  } from 'google-maps-react';
-
+import './css.css';
 // import styles from './autocomplete.module.css';
 const style = {
   width: '100%',
@@ -116,8 +116,8 @@ onInfoWindowClose = () => {
     const { position } = this.state;
     const containerStyle={position: 'relative'}
     return (
-      <div >
-        <div >
+      <div>
+        <div className="wrapper">
           <form onSubmit={this.onSubmit}>
             <input
               placeholder="Enter a location"
