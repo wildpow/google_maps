@@ -82,7 +82,7 @@ class Contents extends Component {
 }
 
 onMapClicked(props, map, e) {
-  console.log('hello')
+  // console.log('hello')
   if (this.state.showingInfoWindow)
     this.setState({
       activeMarker: null,
@@ -97,7 +97,7 @@ onMapClicked(props, map, e) {
     })
 }
 onMarkerClick = (props, marker, e) => {
-  console.log(props)
+  // console.log(props)
   this.setState({
     selectedPlace: props,
     activeMarker: marker,
@@ -105,12 +105,22 @@ onMarkerClick = (props, marker, e) => {
   });
 }
 onInfoWindowClose = () => {
-  console.log('onInfoWindowClose')
+  // console.log('onInfoWindowClose')
   this.setState({
     activeMarker: null,
     showingInfoWindow: false
   });
 }
+centerMoved = (mapProps, map) => {
+  // let lng = map.center.lng()
+  // let lat = map.center.lat()
+  // console.log('map in centerMoved', map, mapProps)
+  // console.log('newmapprops', map)
+  this.setState({
+    position: map.center
+  })
+}
+
 
   render() {
     const { position } = this.state;
@@ -138,6 +148,7 @@ onInfoWindowClose = () => {
         <div>
           <Map
             {...this.props}
+            onDragend={this.centerMoved}
             initialCenter={this.state.initialCenter}
             center={position}
             centerAroundCurrentLocation={false}
@@ -151,17 +162,17 @@ onInfoWindowClose = () => {
               <Marker position={{ lat: this.state.markerPosition.lat, lng: this.state.markerPosition.lng }} name={'Current location'} />
               : null
             }
+              <Polyline
+                fillColor="#0000FF"
+                fillOpacity={0.35}
+                path={this.state.markers}
+                strokeColor="#0000FF"
+                strokeOpacity={0.8}
+                strokeWeight={2}
+              />
             <Markers 
               onMarkerClick={this.onMarkerClick}
               markers={this.state.markers}
-            />
-            <Polyline
-              fillColor="#0000FF"
-              fillOpacity={0.35}
-              path={this.state.markers}
-              strokeColor="#0000FF"
-              strokeOpacity={0.8}
-              strokeWeight={2}
             />
             <InfoWindow
               marker={this.state.activeMarker}

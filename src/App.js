@@ -1,7 +1,7 @@
 import React from 'react';
 // import SimpleMap from './google-map-react'
 // import GoogleMapContainer from './google-maps-react';
-import NewMap from './NewMap'
+// import NewMap from './NewMap'
 import MapWrapper from './auto';
 const App = () => {
     return (
